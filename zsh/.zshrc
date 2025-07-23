@@ -20,7 +20,7 @@ fi
 # ---------------------------
 # Prompt Theme (Oh My Posh)
 # ---------------------------
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/paradox.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/zen.toml)"
 
 # ---------------------------
 # Zinit Setup
