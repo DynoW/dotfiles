@@ -134,3 +134,10 @@ if [[ ! -f "/usr/share/fzf/shell/key-bindings.zsh" && \
       ! -f "$HOME/.fzf.zsh" ]]; then
     bindkey '^r' history-incremental-search-backward
 fi
+
+# fnm
+FNM_PATH="/home/dyno/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
