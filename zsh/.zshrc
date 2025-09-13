@@ -8,7 +8,7 @@ fi
 # ---------------------------
 # PATH Configuration
 # ---------------------------
-export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH:/usr/local/go/bin"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH:/usr/local/bin:/usr/local/go/bin"
 
 # fnm (Fast Node Manager)
 FNM_PATH="$HOME/.local/share/fnm"
