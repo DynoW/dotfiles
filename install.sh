@@ -6,9 +6,9 @@ sudo dnf copr enable scottames/ghostty
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 
-sudo dnf install -y curl zsh fzf zoxide ghostty code syncthing
-flatpak install -y flathub md.obsidian.Obsidian
+sudo dnf install -y curl unzip zsh fzf zoxide ghostty code syncthing
 curl -s https://ohmyposh.dev/install.sh | bash -s
+flatpak install -y flathub md.obsidian.Obsidian
 
 stow ghostty
 stow posh
