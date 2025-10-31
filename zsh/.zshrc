@@ -49,6 +49,7 @@ zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
 # Enable completions
+ZSH_DISABLE_COMPFIX=true
 autoload -Uz compinit && compinit
 zinit cdreplay -q
 
