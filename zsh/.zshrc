@@ -42,7 +42,7 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux # This is an Arch-specific snippet, might not be useful on Fedora/Ubuntu
+#zinit snippet OMZP::archlinux # This is an Arch-specific snippet, might not be useful on Fedora/Ubuntu
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
@@ -50,7 +50,7 @@ zinit snippet OMZP::command-not-found
 
 # Enable completions
 ZSH_DISABLE_COMPFIX=true
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 zinit cdreplay -q
 
 # ---------------------------
