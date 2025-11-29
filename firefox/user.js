@@ -1,0 +1,17 @@
+user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.toolbars.bookmarks.visibility", "always");
+user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[\"administrator_pricy_ro-browser-action\",\"enhancerforyoutube_maximerf_addons_mozilla_org-browser-action\",\"_1c5e4c6f-5530-49a3-b216-31ce7d744db0_-browser-action\",\"addon_darkreader_org-browser-action\"],\"nav-bar\":[\"sidebar-button\",\"back-button\",\"forward-button\",\"stop-reload-button\",\"customizableui-special-spring1\",\"vertical-spacer\",\"urlbar-container\",\"customizableui-special-spring2\",\"downloads-button\",\"fxa-toolbar-menu-button\",\"unified-extensions-button\",\"ublock0_raymondhill_net-browser-action\",\"firefox-view-button\",\"alltabs-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[],\"vertical-tabs\":[\"tabbrowser-tabs\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"screenshot-button\",\"administrator_pricy_ro-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"enhancerforyoutube_maximerf_addons_mozilla_org-browser-action\",\"_1c5e4c6f-5530-49a3-b216-31ce7d744db0_-browser-action\",\"addon_darkreader_org-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"vertical-tabs\",\"toolbar-menubar\",\"TabsToolbar\",\"PersonalToolbar\",\"unified-extensions-area\"],\"currentVersion\":23,\"newElementCount\":2}");
+user_pref("browser.uiCustomization.horizontalTabstrip", "[\"firefox-view-button\",\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"]");
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+user_pref("browser.newtabpage.activity-stream.showSearch", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+user_pref("browser.newtabpage.activity-stream.mobileDownloadModal.enabled", false);
+user_pref("sidebar.main.tools", "aichat,syncedtabs,history");
+user_pref("sidebar.revamp", false);
+user_pref("sidebar.verticalTabs", true);
+user_pref("sidebar.verticalTabs.dragToPinPromo.dismissed", true);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("ui.systemUsesDarkTheme", 1);
+user_pref("browser.newtabpage.pinned", "[]");
+user_pref("browser.bookmarks.restore_default_bookmarks", false);
+user_pref("browser.bookmarks.file", "");
