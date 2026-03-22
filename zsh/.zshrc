@@ -8,7 +8,7 @@ fi
 # ---------------------------
 # PATH Configuration
 # ---------------------------
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH:/usr/local/bin:/usr/local/go/bin"
+export PATH="$HOME/bin:$HOME/go/bin:$HOME/.local/bin:$PATH:/usr/local/bin:/usr/local/go/bin"
 
 # fnm (Fast Node Manager)
 FNM_PATH="$HOME/.local/share/fnm"
@@ -136,9 +136,5 @@ if [[ ! -f "/usr/share/fzf/shell/key-bindings.zsh" && \
     bindkey '^r' history-incremental-search-backward
 fi
 
-# fnm
-FNM_PATH="/home/dyno/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
+# Load uv environment (for pwndbg)
+[[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
