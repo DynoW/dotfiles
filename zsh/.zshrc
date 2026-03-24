@@ -53,6 +53,9 @@ ZSH_DISABLE_COMPFIX=true
 autoload -Uz compinit && compinit -i
 zinit cdreplay -q
 
+# Enable comments
+setopt interactive_comments
+
 # ---------------------------
 # Prompt Configuration (Powerlevel10k)
 # ---------------------------
