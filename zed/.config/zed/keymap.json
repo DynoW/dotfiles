@@ -23,7 +23,6 @@
     "context": "Editor",
     "bindings": {
       "ctrl-e": "workspace::ToggleRightDock",
-      "ctrl-alt-a": ["task::Spawn", { "task_name": "Toggle AI" }],
       "ctrl-alt-p": "editor::ToggleEditPrediction",
       "ctrl-shift-a": "workspace::ToggleLeftDock",
       "ctrl-alt-f": [
