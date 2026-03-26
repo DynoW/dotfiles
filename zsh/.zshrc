@@ -139,5 +139,4 @@ if [[ ! -f "/usr/share/fzf/shell/key-bindings.zsh" && \
     bindkey '^r' history-incremental-search-backward
 fi
 
-# Load uv environment (for pwndbg)
-[[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
+export TERM=xterm-256color
