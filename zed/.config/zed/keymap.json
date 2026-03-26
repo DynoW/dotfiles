@@ -1,0 +1,50 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-e": "workspace::ToggleRightDock",
+      "ctrl-alt-a": "agent::ToggleFocus",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-e": "workspace::ToggleRightDock",
+      "ctrl-alt-a": ["task::Spawn", { "task_name": "Toggle AI" }],
+      "ctrl-alt-p": "editor::ToggleEditPrediction",
+      "ctrl-shift-a": "workspace::ToggleLeftDock",
+      "ctrl-alt-f": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Fix any bugs, logical errors, or style issues in this code while maintaining the same functionality.",
+        },
+      ],
+      "ctrl-alt-d": [
+        "assistant::InlineAssist",
+        {
+          "prompt": "Add clear, concise comments for this code.",
+        },
+      ],
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-e": "workspace::ToggleRightDock",
+      "ctrl-l": ["terminal::SendText", "\u0005"],
+    },
+  },
+]
