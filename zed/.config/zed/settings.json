@@ -98,4 +98,5 @@
     "light": "JetBrains Light",
     "dark": "JetBrains Dark",
   },
+  "vim_mode": true
 }
