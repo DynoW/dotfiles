@@ -42,6 +42,17 @@ final_space = true
       commit_icon = '@'
       fetch_status = true
 
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = 'yellow'
+    background = 'transparent'
+    template = ' <#ffe55e> {{ if .Venv }}{{ .Venv }}{{ end }}</>'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      display_mode = 'environment' # Only shows when a venv is active
+
 [[blocks]]
   type = 'rprompt'
   overflow = 'hidden'

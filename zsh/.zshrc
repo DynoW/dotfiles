@@ -141,3 +141,5 @@ if [[ ! -f "/usr/share/fzf/shell/key-bindings.zsh" && \
 fi
 
 export TERM=xterm-256color
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
