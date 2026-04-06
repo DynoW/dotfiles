@@ -70,7 +70,11 @@
   "outline_panel": {
     "dock": "left",
   },
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
+  },
   "disable_ai": false,
   "project_panel": {
     "dock": "right",
@@ -98,5 +102,5 @@
     "light": "JetBrains Light",
     "dark": "JetBrains Dark",
   },
-  "vim_mode": true
+  "vim_mode": false
 }
