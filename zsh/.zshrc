@@ -8,7 +8,7 @@ fi
 # ---------------------------
 # PATH Configuration
 # ---------------------------
-export PATH="$HOME/bin:$HOME/go/bin:$HOME/.local/bin:$PATH:/usr/local/bin:/usr/local/go/bin"
+export PATH="$HOME/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.npm-global/bin:$PATH:/usr/local/bin:/usr/local/go/bin"
 
 # fnm (Fast Node Manager)
 FNM_PATH="$HOME/.local/share/fnm"
@@ -126,9 +126,6 @@ fi
 
 eval "$(zoxide init --cmd cd zsh)"
 
-# fnm (Fast Node Manager) - This was duplicated, removed the extra block
-# The first fnm block at the top is sufficient.
-
 # ---------------------------
 # Restore standard Ctrl+R if FZF keybindings are not loaded
 # This ensures that if fzf's Ctrl+r isn't active, Zsh's default is.
@@ -142,4 +139,8 @@ fi
 
 export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 
+
+# kilo
+export PATH=/home/dyno/.kilo/bin:$PATH

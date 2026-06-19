@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "collaboration_panel": {
+    "dock": "left"
+  },
   "ssh_connections": [
     {
       "host": "home2",
@@ -56,16 +59,18 @@
     ],
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "claude-haiku-4.5",
+      "model": "gemini-2.5-pro",
       "enable_thinking": false
     },
     "dock": "left",
   },
   "edit_predictions": {
+    "mode": "subtle",
+    "allow_data_collection": "no",
     "copilot": {
-      "enable_next_edit_suggestions": true
+      "enable_next_edit_suggestions": false
     },
-    "provider": "copilot",
+    "provider": "zed",
   },
   "outline_panel": {
     "dock": "left",
@@ -75,7 +80,7 @@
     "light": "Material Icon Theme",
     "dark": "Material Icon Theme"
   },
-  "disable_ai": false,
+  "disable_ai": true,
   "project_panel": {
     "dock": "right",
   },
