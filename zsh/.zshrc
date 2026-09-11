@@ -102,6 +102,7 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 alias cleanwin='find . -name "*:Zone.Identifier" -type f -delete'
+alias files='nautilus'
 
 # ---------------------------
 # Extra Tools
