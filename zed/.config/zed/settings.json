@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "unified",
+  "proxy": "",
   "collaboration_panel": {
     "dock": "left"
   },
@@ -45,6 +47,18 @@
     },
   },
   "agent": {
+    "default_model": {
+      "provider": "openrouter",
+      "model": "z-ai/glm-5.3-flash",
+      "enable_thinking": true,
+      "effort": "high"
+    },
+    "auto_compact": {
+      "threshold": "90%"
+    },
+    "show_turn_stats": true,
+    "play_sound_when_agent_done": "when_hidden",
+    "enable_feedback": false,
     "favorite_models": [
       {
         "provider": "copilot_chat",
@@ -55,6 +69,18 @@
         "provider": "copilot_chat",
         "model": "gpt-5-mini",
         "enable_thinking": false
+      },
+      {
+        "provider": "openrouter",
+        "model": "z-ai/glm-5.3-flash",
+        "enable_thinking": true,
+        "effort": "low"
+      },
+      {
+        "provider": "openrouter",
+        "model": "deepseek/deepseek-v4.1-flash",
+        "enable_thinking": true,
+        "effort": "high"
       }
     ],
     "inline_assistant_model": {
@@ -62,10 +88,10 @@
       "model": "gemini-2.5-pro",
       "enable_thinking": false
     },
-    "dock": "left",
+    "dock": "right",
   },
   "edit_predictions": {
-    "mode": "subtle",
+    "mode": "eager",
     "allow_data_collection": "no",
     "copilot": {
       "enable_next_edit_suggestions": false
@@ -80,7 +106,7 @@
     "light": "Material Icon Theme",
     "dark": "Material Icon Theme"
   },
-  "disable_ai": true,
+  "disable_ai": false,
   "project_panel": {
     "dock": "right",
   },
@@ -107,5 +133,21 @@
     "light": "JetBrains Light",
     "dark": "JetBrains Dark",
   },
-  "vim_mode": false
+  "vim_mode": false,
+  "lsp": {
+    "vscode-css-language-server": {
+      "settings": {
+        "css": {
+          "lint": {
+            "unknownAtRules": "ignore"
+          }
+        },
+        "scss": {
+          "lint": {
+            "unknownAtRules": "ignore"
+          }
+        }
+      }
+    }
+  }
 }
