@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+DOTFILES_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
 if [ -f /etc/os-release ]; then
   . /etc/os-release
 else
@@ -19,6 +21,7 @@ case "$ID" in
     sudo dnf install -y curl unzip zsh fzf zoxide stow
     ;;
   ubuntu|debian)
+    export DEBIAN_FRONTEND=noninteractive
     sudo apt update
     sudo apt install -y curl unzip zsh fzf zoxide stow
     ;;
@@ -29,11 +32,21 @@ case "$ID" in
 esac
 
 if ! command -v oh-my-posh &> /dev/null; then
-  curl -s https://ohmyposh.dev/install.sh | bash -s
+  sudo curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /usr/local/bin
 fi
 
-[ -d "posh" ] && stow -t "$HOME" posh
-[ -d "zsh" ] && stow -t "$HOME" zsh
+for file in ".zshrc" ".zshenv"; do
+  if [ -f "$HOME/$file" ] && [ ! -L "$HOME/$file" ]; then
+    echo "Backing up pre-existing regular file: $HOME/$file"
+    mv "$HOME/$file" "$HOME/${file}.bak"
+  fi
+done
+
+for package in posh zsh; do
+  if [ -d "$DOTFILES_DIR/$package" ]; then
+    stow -t "$HOME" -d "$DOTFILES_DIR" -R "$package"
+  fi
+done
 
 if command -v zsh &> /dev/null && [ "$SHELL" != "$(which zsh)" ]; then
   sudo chsh -s "$(which zsh)" "$USER" || true
@@ -49,6 +62,9 @@ if [ "$IS_CONTAINER" = false ] && [ "$ID" = "fedora" ]; then
   sudo dnf install -y ghostty code syncthing
   flatpak install -y flathub md.obsidian.Obsidian
 
-  [ -d "ghostty" ] && stow -t "$HOME" ghostty
+  if [ -d "$DOTFILES_DIR/ghostty" ]; then
+    stow -t "$HOME" -d "$DOTFILES_DIR" -R ghostty
+  fi
+
   gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 fi
