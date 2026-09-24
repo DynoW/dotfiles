@@ -1,23 +1,54 @@
-#!/bin/bash
-sudo dnf update
+#!/usr/bin/env bash
+set -e
 
-sudo dnf copr enable scottames/ghostty
+if [ -f /etc/os-release ]; then
+  . /etc/os-release
+else
+  echo "Error: /etc/os-release not found." >&2
+  exit 1
+fi
 
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+IS_CONTAINER=false
+if [ -n "$CODESPACES" ] || [ -f /.dockerenv ] || [ -n "$REMOTE_CONTAINERS" ]; then
+  IS_CONTAINER=true
+fi
 
-sudo dnf install -y curl unzip zsh fzf zoxide ghostty code syncthing
-curl -s https://ohmyposh.dev/install.sh | bash -s
-flatpak install -y flathub md.obsidian.Obsidian
+case "$ID" in
+  fedora)
+    sudo dnf update -y
+    sudo dnf install -y curl unzip zsh fzf zoxide stow
+    ;;
+  ubuntu|debian)
+    sudo apt update
+    sudo apt install -y curl unzip zsh fzf zoxide stow
+    ;;
+  *)
+    echo "Unsupported distribution: $ID" >&2
+    exit 1
+    ;;
+esac
 
-stow ghostty
-stow posh
-stow zsh
+if ! command -v oh-my-posh &> /dev/null; then
+  curl -s https://ohmyposh.dev/install.sh | bash -s
+fi
 
-chsh -s /usr/bin/zsh
-gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+[ -d "posh" ] && stow posh
+[ -d "zsh" ] && stow zsh
 
-#/home/dyno/.local/state/syncthing
+if command -v zsh &> /dev/null && [ "$SHELL" != "$(which zsh)" ]; then
+  sudo chsh -s "$(which zsh)" "$USER" || true
+fi
 
-#systemctl --user enable syncthing
-#systemctl --user start syncthing
+if [ "$IS_CONTAINER" = false ] && [ "$ID" = "fedora" ]; then
+  echo "Installing desktop GUI apps for Fedora..."
+  sudo dnf copr enable -y scottames/ghostty
+
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+
+  sudo dnf install -y ghostty code syncthing
+  flatpak install -y flathub md.obsidian.Obsidian
+
+  [ -d "ghostty" ] && stow ghostty
+  gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+fi
