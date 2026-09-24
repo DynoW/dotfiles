@@ -32,8 +32,8 @@ if ! command -v oh-my-posh &> /dev/null; then
   curl -s https://ohmyposh.dev/install.sh | bash -s
 fi
 
-[ -d "posh" ] && stow posh
-[ -d "zsh" ] && stow zsh
+[ -d "posh" ] && stow -t "$HOME" posh
+[ -d "zsh" ] && stow -t "$HOME" zsh
 
 if command -v zsh &> /dev/null && [ "$SHELL" != "$(which zsh)" ]; then
   sudo chsh -s "$(which zsh)" "$USER" || true
@@ -49,6 +49,6 @@ if [ "$IS_CONTAINER" = false ] && [ "$ID" = "fedora" ]; then
   sudo dnf install -y ghostty code syncthing
   flatpak install -y flathub md.obsidian.Obsidian
 
-  [ -d "ghostty" ] && stow ghostty
+  [ -d "ghostty" ] && stow -t "$HOME" ghostty
   gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 fi
