@@ -32,7 +32,7 @@ case "$ID" in
 esac
 
 if ! command -v oh-my-posh &> /dev/null; then
-  sudo curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /usr/local/bin
+  sudo curl -s https://ohmyposh.dev/install.sh | bash -s -- -d "$HOME/.local/bin"
 fi
 
 for file in ".zshrc" ".zshenv"; do
