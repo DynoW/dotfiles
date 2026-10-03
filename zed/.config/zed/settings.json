@@ -8,7 +8,6 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "diff_view_style": "unified",
-  "proxy": "",
   "collaboration_panel": {
     "dock": "left"
   },
@@ -47,6 +46,13 @@
     },
   },
   "agent": {
+    "sandbox_permissions": {
+      "network_hosts": [
+        "docs.astro.build"
+      ]
+    },
+    "sidebar_side": "right",
+    "default_profile": "write",
     "default_model": {
       "provider": "openrouter",
       "model": "z-ai/glm-5.3-flash",
@@ -74,7 +80,7 @@
         "provider": "openrouter",
         "model": "z-ai/glm-5.3-flash",
         "enable_thinking": true,
-        "effort": "low"
+        "effort": "high"
       },
       {
         "provider": "openrouter",
@@ -91,12 +97,12 @@
     "dock": "right",
   },
   "edit_predictions": {
-    "mode": "eager",
+    "mode": "subtle",
     "allow_data_collection": "no",
     "copilot": {
-      "enable_next_edit_suggestions": false
+      "enable_next_edit_suggestions": true
     },
-    "provider": "zed",
+    "provider": "copilot",
   },
   "outline_panel": {
     "dock": "left",
@@ -133,7 +139,9 @@
     "light": "JetBrains Light",
     "dark": "JetBrains Dark",
   },
-  "vim_mode": false,
+  "vim_mode": true,
+  "cursor_blink": false,
+  "relative_line_numbers": "enabled",
   "lsp": {
     "vscode-css-language-server": {
       "settings": {
@@ -147,6 +155,15 @@
             "unknownAtRules": "ignore"
           }
         }
+      }
+    }
+  },
+  "languages": {
+    "Rust": {
+      "inlay_hints": {
+        "enabled": true,
+        "show_type_hints": true,
+        "show_parameter_hints": true
       }
     }
   }

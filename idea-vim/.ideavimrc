@@ -1,0 +1,53 @@
+"" ============================================================================
+"" 1. Core Vim Behavior & Options
+"" ============================================================================
+let mapleader = " "          " Set leader key to <Space>
+
+set hlsearch                 " Highlight search results
+set incsearch                " Jump to results as you type
+set ignorecase               " Case insensitive search...
+set smartcase                " ...unless you use an uppercase letter
+set scrolloff=5              " Keep 5 lines visible above/below cursor
+set clipboard+=unnamed       " Use system clipboard for yank/delete/paste
+
+"" Fast escape from insert mode (no more reaching for Esc key)
+inoremap jk <Esc>
+
+"" Clear search highlights with Esc in normal mode
+nnoremap <Esc> :nohlsearch<CR>
+
+"" Keep visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+"" ============================================================================
+"" 2. Emulated Vim Plugins (Built into IdeaVim)
+"" ============================================================================
+set surround                 " Add/change quotes and parens (cs"', ysiw), ds")
+set commentary               " Toggle comments with 'gcc' or 'gc' in visual
+set multiple-cursors         " Add multi-cursors with <A-n>
+set argtextobj               " Manipulate function arguments (cia, daa)
+
+"" ============================================================================
+"" 3. Universal <Space> Leader Mappings (Bridges Vim to IntelliJ Powers)
+"" ============================================================================
+
+" Navigation & Definitions
+nnoremap <leader>gd :action GotoDeclaration<CR>
+nnoremap <leader>gi :action GotoImplementation<CR>
+nnoremap <leader>fu :action FindUsages<CR>
+
+" Refactoring (Essential for ACS OOP)
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+nnoremap <leader>fmt :action ReformatCode<CR>
+
+" Files & Windows
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fs :action GotoSymbol<CR>
+nnoremap <leader>e  :action ActivateProjectToolWindow<CR>
+
+" Running & Debugging Code
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>dd :action Debug<CR>
+nnoremap <leader>tb :action ToggleLineBreakpoint<CR>

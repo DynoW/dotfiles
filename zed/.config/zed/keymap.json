@@ -16,34 +16,95 @@
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
-      // "j k": "vim::NormalBefore"
+      "j k": "vim::NormalBefore"
     },
   },
   {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-e": "workspace::ToggleRightDock",
-      "ctrl-alt-p": "editor::ToggleEditPrediction",
-      "ctrl-shift-a": "workspace::ToggleLeftDock",
-      "ctrl-alt-f": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Fix any bugs, logical errors, or style issues in this code while maintaining the same functionality.",
-        },
-      ],
-      "ctrl-alt-d": [
-        "assistant::InlineAssist",
-        {
-          "prompt": "Add clear, concise comments for this code.",
-        },
-      ],
+      "context": "Editor && vim_mode == normal",
+      "bindings": {
+        "ctrl-v": "editor::Paste",
+        "ctrl-h": "workspace::ActivatePaneLeft",
+        "ctrl-l": "workspace::ActivatePaneRight",
+        "ctrl-k": "workspace::ActivatePaneUp",
+        "ctrl-j": "workspace::ActivatePaneDown",
+        "ctrl-f": "vim::LineDown",
+        "ctrl-e": "vim::LineUp"
+      }
     },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "space h": "buffer_search::Dismiss",
+
+      "space g g": "git_panel::ToggleFocus",
+      "space g d": "editor::GoToDefinition",
+      "space g i": "editor::GoToImplementation",
+      "space g y": "editor::GoToTypeDefinition",
+      "space r n": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+      "space f m t": "editor::Format",
+
+      "space d n": "editor::GoToDiagnostic",
+      "space d p": "editor::GoToPreviousDiagnostic",
+
+      "space f f": "file_finder::Toggle",
+      "space e": "project_panel::ToggleFocus",
+      "space v": "pane::SplitRight",
+      "space s": "pane::SplitDown",
+
+      "space b": "workspace::ToggleLeftDock",
+      "space m": "workspace::ToggleRightDock",
+      "space z": "workspace::ToggleAllDocks"
+    }
   },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      ">": "editor::Indent",
+      "<": "editor::Outdent",
+      "ctrl-x": "editor::Cut"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "space g g": "workspace::FocusCenterPane",
+      "escape": "workspace::FocusCenterPane"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "space e": "workspace::FocusCenterPane",
+      "escape": "workspace::FocusCenterPane"
+    }
+  },
+  // {
+  //   "context": "Editor",
+  //   "bindings": {
+  //     "ctrl-e": "workspace::ToggleRightDock",
+  //     "ctrl-alt-p": "editor::ToggleEditPrediction",
+  //     "ctrl-shift-a": "workspace::ToggleLeftDock",
+  //     "ctrl-alt-f": [
+  //       "assistant::InlineAssist",
+  //       {
+  //         "prompt": "Fix any bugs, logical errors, or style issues in this code while maintaining the same functionality.",
+  //       },
+  //     ],
+  //     "ctrl-alt-d": [
+  //       "assistant::InlineAssist",
+  //       {
+  //         "prompt": "Add clear, concise comments for this code.",
+  //       },
+  //     ],
+  //   },
+  // },
   {
     "context": "Terminal",
     "bindings": {
       "ctrl-e": "workspace::ToggleRightDock",
       "ctrl-l": ["terminal::SendText", "\u0005"],
+      "ctrl-v": "terminal::Paste"
     },
   },
 ]
