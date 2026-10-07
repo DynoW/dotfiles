@@ -1,0 +1,13 @@
+# LazyVim local state and backups
+**/.lazy.lua
+**/lazy-lock.json.bak
+
+# Neovim / Vim swap and backup files
+*.swp
+*.swo
+*~
+*.undo
+
+# OS metadata
+.DS_Store
+Thumbs.db

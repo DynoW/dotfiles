@@ -94,15 +94,23 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=yellow'
 
 # ---------------------------
 # Aliases
 # ---------------------------
 alias ls='ls --color'
 alias vim='nvim'
+#alias vim='vimx'
+#alias vi='vimx'
 alias c='clear'
 alias cleanwin='find . -name "*:Zone.Identifier" -type f -delete'
 alias files='nautilus'
+alias tn='tmux new -s'
+alias ts='tn'
+alias tl='tmux ls'
+alias ta='tmux attach -t'
+alias tk='tmux kill-session -t'
 
 # ---------------------------
 # Extra Tools
@@ -138,7 +146,7 @@ if [[ ! -f "/usr/share/fzf/shell/key-bindings.zsh" && \
     bindkey '^r' history-incremental-search-backward
 fi
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 
@@ -148,7 +156,7 @@ export PATH=/home/dyno/.kilo/bin:$PATH
 [ -f ~/.env.secrets ] && source ~/.env.secrets
 
 # pnpm
-export PNPM_HOME="/home/dyno/.local/share/pnpm"
+export PNPM_HOME='/home/dyno/.local/share/pnpm'
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
