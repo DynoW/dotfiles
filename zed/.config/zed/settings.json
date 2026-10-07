@@ -7,9 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "format_on_save": "on",
   "diff_view_style": "unified",
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "ssh_connections": [
     {
@@ -34,10 +35,7 @@
   "agent_servers": {
     "github-copilot-cli": {
       "favorite_config_option_values": {
-        "model": [
-          "gpt-5.4-mini",
-          "claude-sonnet-4.5"
-        ]
+        "model": ["gpt-5.4-mini", "claude-sonnet-4.5"],
       },
       "type": "registry",
     },
@@ -46,21 +44,21 @@
     },
   },
   "agent": {
-    "sandbox_permissions": {
-      "network_hosts": [
-        "docs.astro.build"
-      ]
+    "threads_sidebar": {
+      "position": "right"
     },
-    "sidebar_side": "right",
+    "sandbox_permissions": {
+      "network_hosts": ["docs.astro.build"],
+    },
     "default_profile": "write",
     "default_model": {
       "provider": "openrouter",
       "model": "z-ai/glm-5.3-flash",
       "enable_thinking": true,
-      "effort": "high"
+      "effort": "high",
     },
     "auto_compact": {
-      "threshold": "90%"
+      "threshold": "90%",
     },
     "show_turn_stats": true,
     "play_sound_when_agent_done": "when_hidden",
@@ -69,30 +67,30 @@
       {
         "provider": "copilot_chat",
         "model": "claude-haiku-4.5",
-        "enable_thinking": false
+        "enable_thinking": false,
       },
       {
         "provider": "copilot_chat",
         "model": "gpt-5-mini",
-        "enable_thinking": false
+        "enable_thinking": false,
       },
       {
         "provider": "openrouter",
         "model": "z-ai/glm-5.3-flash",
         "enable_thinking": true,
-        "effort": "high"
+        "effort": "high",
       },
       {
         "provider": "openrouter",
         "model": "deepseek/deepseek-v4.1-flash",
         "enable_thinking": true,
-        "effort": "high"
-      }
+        "effort": "high",
+      },
     ],
     "inline_assistant_model": {
-      "provider": "copilot_chat",
-      "model": "gemini-2.5-pro",
-      "enable_thinking": false
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "enable_thinking": false,
     },
     "dock": "right",
   },
@@ -100,7 +98,7 @@
     "mode": "subtle",
     "allow_data_collection": "no",
     "copilot": {
-      "enable_next_edit_suggestions": true
+      "enable_next_edit_suggestions": true,
     },
     "provider": "copilot",
   },
@@ -110,7 +108,7 @@
   "icon_theme": {
     "mode": "light",
     "light": "Material Icon Theme",
-    "dark": "Material Icon Theme"
+    "dark": "Material Icon Theme",
   },
   "disable_ai": false,
   "project_panel": {
@@ -139,7 +137,7 @@
     "light": "JetBrains Light",
     "dark": "JetBrains Dark",
   },
-  "vim_mode": true,
+  "vim_mode": false,
   "cursor_blink": false,
   "relative_line_numbers": "enabled",
   "lsp": {
@@ -147,24 +145,24 @@
       "settings": {
         "css": {
           "lint": {
-            "unknownAtRules": "ignore"
-          }
+            "unknownAtRules": "ignore",
+          },
         },
         "scss": {
           "lint": {
-            "unknownAtRules": "ignore"
-          }
-        }
-      }
-    }
+            "unknownAtRules": "ignore",
+          },
+        },
+      },
+    },
   },
   "languages": {
     "Rust": {
       "inlay_hints": {
         "enabled": true,
         "show_type_hints": true,
-        "show_parameter_hints": true
-      }
-    }
-  }
+        "show_parameter_hints": true,
+      },
+    },
+  },
 }
